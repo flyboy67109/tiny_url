@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TinyURL{% endblock %}
+
+{% block body %}
+    <h1>Create new TinyURL</h1>
+
+    {{ include('tiny_u_r_l/_form.html.twig') }}
+
+    <a href="{{ path('tiny_u_r_l_index') }}">back to list</a>
+{% endblock %}

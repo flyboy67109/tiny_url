@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TinyURL{% endblock %}
+
+{% block body %}
+    <h1>TinyURL</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ tiny_u_r_l.id }}</td>
+            </tr>
+            <tr>
+                <th>Full_url</th>
+                <td>{{ tiny_u_r_l.fullUrl }}</td>
+            </tr>
+            <tr>
+                <th>Tiny_url</th>
+                <td>{{ tiny_u_r_l.tinyUrl }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('tiny_u_r_l_index') }}">back to list</a>
+
+    <a href="{{ path('tiny_u_r_l_edit', {'id': tiny_u_r_l.id}) }}">edit</a>
+
+    {{ include('tiny_u_r_l/_delete_form.html.twig') }}
+{% endblock %}

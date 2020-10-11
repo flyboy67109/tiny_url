@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TinyURL index{% endblock %}
+
+{% block body %}
+    <h1>TinyURL index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Full_url</th>
+                <th>Tiny_url</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tiny_u_r_l in tiny_u_r_ls %}
+            <tr>
+                <td>{{ tiny_u_r_l.id }}</td>
+                <td>{{ tiny_u_r_l.fullUrl }}</td>
+                <td>{{ tiny_u_r_l.tinyUrl }}</td>
+                <td>
+                    <a href="{{ path('tiny_u_r_l_show', {'id': tiny_u_r_l.id}) }}">show</a>
+                    <a href="{{ path('tiny_u_r_l_edit', {'id': tiny_u_r_l.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('tiny_u_r_l_new') }}">Create new</a>
+{% endblock %}
